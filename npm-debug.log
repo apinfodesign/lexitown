@@ -1,0 +1,82 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', '--save-dev', 'gulp[' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.32
+4 verbose readDependencies using package.json deps
+5 verbose cache add [ 'gulp[', null ]
+6 verbose cache add name=undefined spec="gulp[" args=["gulp[",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: 'gulp[',
+7 verbose parsed url   path: 'gulp[',
+7 verbose parsed url   href: 'gulp[' }
+8 silly lockFile 52c4015f-gulp gulp[
+9 verbose lock gulp[ /Users/mileshochstein/.npm/52c4015f-gulp.lock
+10 silly lockFile 52c4015f-gulp gulp[
+11 silly lockFile 52c4015f-gulp gulp[
+12 verbose addNamed [ 'gulp[', '' ]
+13 verbose addNamed [ null, '*' ]
+14 silly lockFile 81f9ba01-gulp gulp[@
+15 verbose lock gulp[@ /Users/mileshochstein/.npm/81f9ba01-gulp.lock
+16 silly addNameRange { name: 'gulp[', range: '*', hasData: false }
+17 verbose request where is /gulp[
+18 verbose request registry https://registry.npmjs.org/
+19 verbose request id 581be85b43bc299d
+20 verbose url raw /gulp[
+21 verbose url resolving [ 'https://registry.npmjs.org/', './gulp%5B' ]
+22 verbose url resolved https://registry.npmjs.org/gulp%5B
+23 verbose request where is https://registry.npmjs.org/gulp%5B
+24 info trying registry request attempt 1 at 11:30:27
+25 http GET https://registry.npmjs.org/gulp%5B
+26 http 404 https://registry.npmjs.org/gulp%5B
+27 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+27 verbose headers   'content-type': 'application/json',
+27 verbose headers   'cache-control': 'max-age=0',
+27 verbose headers   'content-length': '51',
+27 verbose headers   'accept-ranges': 'bytes',
+27 verbose headers   date: 'Fri, 26 Jun 2015 18:30:27 GMT',
+27 verbose headers   via: '1.1 varnish',
+27 verbose headers   age: '0',
+27 verbose headers   connection: 'keep-alive',
+27 verbose headers   'x-served-by': 'cache-lax1429-LAX',
+27 verbose headers   'x-cache': 'MISS',
+27 verbose headers   'x-cache-hits': '0',
+27 verbose headers   'x-timer': 'S1435343427.597836,VS0,VE52' }
+28 silly registry.get cb [ 404,
+28 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+28 silly registry.get     'content-type': 'application/json',
+28 silly registry.get     'cache-control': 'max-age=0',
+28 silly registry.get     'content-length': '51',
+28 silly registry.get     'accept-ranges': 'bytes',
+28 silly registry.get     date: 'Fri, 26 Jun 2015 18:30:27 GMT',
+28 silly registry.get     via: '1.1 varnish',
+28 silly registry.get     age: '0',
+28 silly registry.get     connection: 'keep-alive',
+28 silly registry.get     'x-served-by': 'cache-lax1429-LAX',
+28 silly registry.get     'x-cache': 'MISS',
+28 silly registry.get     'x-cache-hits': '0',
+28 silly registry.get     'x-timer': 'S1435343427.597836,VS0,VE52' } ]
+29 silly lockFile 81f9ba01-gulp gulp[@
+30 silly lockFile 81f9ba01-gulp gulp[@
+31 error 404 404 Not Found: gulp%5B
+31 error 404
+31 error 404 'gulp%5B' is not in the npm registry.
+31 error 404 You should bug the author to publish it
+31 error 404 It was specified as a dependency of 'nodetest1'
+31 error 404
+31 error 404 Note that you can also install from a
+31 error 404 tarball, folder, or http url, or git url.
+32 error System Darwin 14.3.0
+33 error command "node" "/usr/local/bin/npm" "install" "--save-dev" "gulp["
+34 error cwd /Users/mileshochstein/Documents/ProjectsPCS2015/p50nodecrud/nodetest1
+35 error node -v v0.10.32
+36 error npm -v 1.4.28
+37 error code E404
+38 verbose exit [ 1, true ]
