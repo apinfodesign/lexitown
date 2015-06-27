@@ -8,3 +8,8 @@ body {
 a {
   color: #00B7FF;
 }
+
+ul.home li.home { color: blue; }
+ul.blog li.blog { color: blue; }
+ul.contact li.contact { color: blue; }
+ul.about li.about { color: blue; }

@@ -3,22 +3,23 @@ var router = express.Router();
 
 //database connection
 var mongoose = require('mongoose');
+
+//local with local mongo db testing 
 //var db = mongoose.connect('mongodb://localhost/nodecrud');
  
-
+//local with remote mongolab DB
+//OR remote (heroku) with remote mongolabs DB
 try{
     var uristring = require('../data/mongolabinfo.js').name;
-    console.log("trying local mongolab string");
+    //console.log("trying local mongolab string");
 }
 catch(err){
-    console.log("no connection file so go on to Heroku config var");
+    //console.log("no connection file so go on to Heroku config var");
     var uristring = process.env.MONGOLAB_URI;   //if Heroku env
 }
-
 console.log("Either way: uristring is "+ uristring);
 
 var db = mongoose.connect(uristring);
-
 
 //database schema
 var User = db.model('user', 
@@ -26,8 +27,6 @@ var User = db.model('user',
 		username: String,
 		email: String
 	});
- 
-
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -35,8 +34,8 @@ router.get('/', function(req, res, next) {
 });
 
 /* GET Hello World page. */
-router.get('/helloworld', function(req, res) {
-    res.render('helloworld', { title: 'Hello Words!' });
+router.get('/about', function(req, res) {
+    res.render('about', { title: 'Lexitown Does Word Functions' });
 });
 
 /* GET Userlist page. */
