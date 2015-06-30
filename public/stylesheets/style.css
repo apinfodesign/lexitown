@@ -13,3 +13,10 @@ ul.home li.home { color: blue; }
 ul.blog li.blog { color: blue; }
 ul.contact li.contact { color: blue; }
 ul.about li.about { color: blue; }
+
+.mybox {
+		width:500px;
+		padding: 10px;
+		background-color: #333333;
+		margin-bottom: 20px;
+		}

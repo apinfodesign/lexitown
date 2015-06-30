@@ -6,13 +6,18 @@ block content
     form(name="adduser",method="post",action="/adduser")
         p Create New Post
         input(type="text", placeholder="Your Title", name="username")
-        input(type="text", placeholder="Your Post", name="email")
-        button(type="submit") submit
+        button(type="submit")                        submit
+        p 
+        textarea(type="text", cols="80", rows="5", placeholder="Your Post", name="email")
+        
     ul
         each user, i in userlist
-            li 
-                p #{user.username}
-                p #{user.email}
-                a(href="/edituser/#{user.id}") Edit Button
-                p
-                a(href="/deleteuser/#{user.id}") Delete Button
+            li
+                .mybox 
+                    p #{user.username}
+                    p #{user.email}
+                    a(href="/edituser/#{user.id}") Edit
+                    =" "
+                    =" "
+                    =" "
+                    a(href="/deleteuser/#{user.id}") Delete

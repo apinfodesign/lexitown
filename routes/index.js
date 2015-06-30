@@ -40,24 +40,18 @@ router.get('/about', function(req, res) {
 
 /* GET Userlist page. */
 router.get('/userlist', function(req, res) {
-    // var db = req.db;
-    // var collection = db.get('usercollection');
-
     User.find( {} , function(err,docs){
-        docs.reverse();
-        //console.log(docs);
+        docs.reverse();   //reverse the array before handing to client
+        docs = docs.slice(0,5);
 
         res.render('userlist', {'userlist':docs});
     });
 });
 
- 
-
 /* GET New User page. */
 router.get('/newuser', function(req, res) {
     res.render('newuser', { title: 'Add New User' });
 });
-
 
 /* POST to Add User Service */
 router.post('/adduser', function(req, res) {
