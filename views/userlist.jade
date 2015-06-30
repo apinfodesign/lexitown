@@ -2,22 +2,25 @@ extends layout
 
 block content
     h1.
-        Blog Posts
+        Text Connect    
     form(name="adduser",method="post",action="/adduser")
         p Create New Post
-        input(type="text", placeholder="Your Title", name="username")
-        button(type="submit")                        submit
+        input(type="text", size="60", placeholder="Your Title", name="username")
+        =" "
+        button(type="submit")  submit
         p 
-        textarea(type="text", cols="80", rows="5", placeholder="Your Post", name="email")
+        textarea.form-control(type="text", cols="80", rows="5", placeholder="Your Post", name="email")
         
     ul
         each user, i in userlist
             li
                 .mybox 
-                    p #{user.username}
-                    p #{user.email}
+                    p Post Title: #{user.postname}
+                    p Name: #{user.username}
+                    p E-Mail: #{user.email}
+                    p Organization: #{user.organization}
+                    p Telephone: #{user.telephone}
+                    p Proposal Content: #{user.postcontent}
                     a(href="/edituser/#{user.id}") Edit
-                    =" "
-                    =" "
                     =" "
                     a(href="/deleteuser/#{user.id}") Delete

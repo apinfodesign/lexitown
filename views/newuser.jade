@@ -1,10 +1,15 @@
 extends layout
 
 block content
-    h1= titles
-    form#formAddUser(name="adduser",method="post",action="/adduser")
-        input#inputUserName(type="text", placeholder="username", name="username")
-
-        input#inputUserEmail(type="text", placeholder="email", name="email")
-        
-        button#btnSubmit(type="submit") submit
+    h1.
+        Submit Your Idea 
+    form(name="adduser", method="post", action="/adduser")
+        input(type="text", size="60", placeholder="Proposal Title (required)", name="postname")
+        input(type="text", size="60", placeholder="Your Name (required)", name="username")
+        input(type="text", size="60", placeholder="Your E-Mail (required)", name="email")
+        input(type="text", size="60", placeholder="Your Organization (optional)", name="organization")
+        input(type="text", size="60", placeholder="Your Telephone (optional)", name="telephone")
+        p 
+        textarea.form-control(type="text", cols="8", rows="15", placeholder="Your Proposal or Message", name="postcontent")
+        =" "
+        button.btn-primary(type="submit") Send

@@ -24,14 +24,23 @@ var db = mongoose.connect(uristring);
 //database schema
 var User = db.model('user', 
 	{
-		username: String,
-		email: String
-	});
+		postname: String,
+        username: String,
+		email: String,
+        organization: String,
+        telephone: String,
+        postcontent: String
+ 	});
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Lexitown' });
+  res.render('index', { title: 'Suggestion Module' });
 });
+
+router.get('/thankyou', function(req, res, next) {
+  res.render('thankyou', { title: 'Thank You for Your Message' });
+});
+
 
 /* GET Hello World page. */
 router.get('/about', function(req, res) {
@@ -53,17 +62,23 @@ router.get('/newuser', function(req, res) {
     res.render('newuser', { title: 'Add New User' });
 });
 
+
+
 /* POST to Add User Service */
 router.post('/adduser', function(req, res) {
 
     var NewUserDoc = new User({
+        postname: req.body.postname,
         username: req.body.username,
-        email: req.body.email
-    });
+        email: req.body.email,
+        organization: req.body.organization,
+        telephone: req.body.telephone,
+        postcontent: req.body.postcontent 
+        });
 
     console.log(NewUserDoc);
     NewUserDoc.save(function(err, callback){
-        res.redirect('userlist');
+        res.redirect('/thankyou');
     });
 
 });

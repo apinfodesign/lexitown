@@ -1,8 +1,7 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: green;
-  color: white;
+  
 }
 
 a {
@@ -17,6 +16,6 @@ ul.about li.about { color: blue; }
 .mybox {
 		width:500px;
 		padding: 10px;
-		background-color: #333333;
+		background-color: #666666;
 		margin-bottom: 20px;
 		}
