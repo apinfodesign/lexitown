@@ -5,5 +5,8 @@ block content
         User List
     ul
         each user, i in userlist
-            li
-                a(href="mailto:#{user.email}")= user.username
+            li 
+                p #{user.username}
+                a(href="/edituser/#{user.id}") Edit Button
+                p
+                a(href="/deleteuser/#{user.id}") Delete Button

@@ -10,6 +10,11 @@ var users = require('./routes/users');
 
 var app = express();
 
+var methodOverride = require('method-override');
+
+app.use(methodOverride('_method'));
+
+
 // var mongo = require('mongodb');
 // var monk = require('monk');
 // var db = monk('localhost:27017/nodecrud');

@@ -1,0 +1,9 @@
+extends layout
+
+block content
+    h1 Edit Your Form
+    form#formEditUser(name="update",method="post",action="/update")
+        input#inputUserName(type="text", size=40, placeholder="id", name="id", value="#{user[0]._id}")
+        input#inputUserName(type="text", placeholder="username", name="username", value="#{user[0].username}")
+        input#inputUserEmail(type="text", placeholder="email", name="email", value="#{user[0].email}")        
+        button#btnSubmit(type="submit") Submit
