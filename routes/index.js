@@ -44,7 +44,7 @@ router.get('/userlist', function(req, res) {
     // var collection = db.get('usercollection');
 
     User.find( {} , function(err,docs){
-
+        docs.reverse();
         //console.log(docs);
 
         res.render('userlist', {'userlist':docs});
@@ -77,7 +77,7 @@ router.post('/adduser', function(req, res) {
 router.get('/deleteuser/:id', function(req, res){
     console.log(req.params.id);
     User.remove({_id: req.params.id }, function(){
-            res.send('deleted here');
+           res.redirect('/userlist');
     });
 });
 

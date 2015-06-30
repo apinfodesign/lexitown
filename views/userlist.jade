@@ -2,11 +2,17 @@ extends layout
 
 block content
     h1.
-        User List
+        Blog Posts
+    form(name="adduser",method="post",action="/adduser")
+        p Create New Post
+        input(type="text", placeholder="Your Title", name="username")
+        input(type="text", placeholder="Your Post", name="email")
+        button(type="submit") submit
     ul
         each user, i in userlist
             li 
                 p #{user.username}
+                p #{user.email}
                 a(href="/edituser/#{user.id}") Edit Button
                 p
                 a(href="/deleteuser/#{user.id}") Delete Button
