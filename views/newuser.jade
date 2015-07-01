@@ -4,12 +4,12 @@ block content
     h1.
         Submit Your Idea 
     form(name="adduser", method="post", action="/adduser")
-        input(type="text", size="60", placeholder="Proposal Title (required)", name="postname")
-        input(type="text", size="60", placeholder="Your Name (required)", name="username")
-        input(type="text", size="60", placeholder="Your E-Mail (required)", name="email")
+        input(type="text", size="60", placeholder="Proposal Title (required)", name="postname" required)
+        input(type="text", size="60", placeholder="Your Name (required)", name="username" required)
+        input(type="text", size="60", placeholder="Your E-Mail (required)", name="email" required)
         input(type="text", size="60", placeholder="Your Organization (optional)", name="organization")
         input(type="text", size="60", placeholder="Your Telephone (optional)", name="telephone")
         p 
-        textarea.form-control(type="text", cols="8", rows="15", placeholder="Your Proposal or Message", name="postcontent")
+        textarea.form-control(type="text", cols="8", rows="10", placeholder="Your Proposal or Message (required)", name="postcontent" required)
         =" "
         button.btn-primary(type="submit") Send

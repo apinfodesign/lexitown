@@ -44,7 +44,7 @@ router.get('/thankyou', function(req, res, next) {
 
 /* GET Hello World page. */
 router.get('/about', function(req, res) {
-    res.render('about', { title: 'Lexitown Does Word Functions' });
+    res.render('about', { title: 'Suggestion Module' });
 });
 
 /* GET Userlist page. */
