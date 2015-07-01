@@ -1,0 +1,16 @@
+extends layout
+
+block content
+    h1 Single View Page
+        p
+            .mybox 
+                p Post Title: #{user[0].postname}
+                p Date: #{user[0].date}
+                p Name: #{user[0].username}
+                p E-Mail: #{user[0].email}
+                p Organization: #{user[0].organization}
+                p Telephone: #{user[0].telephone}
+                p Proposal Content: #{user[0].postcontent}
+                a(href="/edituser/#{user[0].id}") Edit
+                =" "
+                a(href="/deleteuser/#{user[0].id}") Delete

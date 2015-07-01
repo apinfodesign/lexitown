@@ -29,8 +29,10 @@ var User = db.model('user',
 		email: String,
         organization: String,
         telephone: String,
-        postcontent: String
+        postcontent: String,
+        date : {type: Date}
  	});
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -42,7 +44,7 @@ router.get('/thankyou', function(req, res, next) {
 });
 
 
-/* GET Hello World page. */
+/* GET About page. */
 router.get('/about', function(req, res) {
     res.render('about', { title: 'Suggestion Module' });
 });
@@ -51,7 +53,7 @@ router.get('/about', function(req, res) {
 router.get('/userlist', function(req, res) {
     User.find( {} , function(err,docs){
         docs.reverse();   //reverse the array before handing to client
-        docs = docs.slice(0,5);
+        docs = docs.slice(0,10);
 
         res.render('userlist', {'userlist':docs});
     });
@@ -67,13 +69,17 @@ router.get('/newuser', function(req, res) {
 /* POST to Add User Service */
 router.post('/adduser', function(req, res) {
 
+    var date = Date.now();
+    console.log(date + " is the current date");
+
     var NewUserDoc = new User({
         postname: req.body.postname,
         username: req.body.username,
         email: req.body.email,
         organization: req.body.organization,
         telephone: req.body.telephone,
-        postcontent: req.body.postcontent 
+        postcontent: req.body.postcontent,
+        date: date 
         });
 
     console.log(NewUserDoc);
@@ -90,6 +96,14 @@ router.get('/deleteuser/:id', function(req, res){
     });
 });
 
+router.get('/singleview/:id', function(req,res){
+     User.find({_id: req.params.id}, function(err, docs){
+        console.log(docs);
+        res.render('singleview.jade', {user : docs});
+    });
+});
+
+
 router.get('/edituser/:id', function(req,res){
      User.find({_id: req.params.id}, function(err, docs){
         console.log(docs);
@@ -104,9 +118,13 @@ router.post('/update', function(req,res){
     User.findOneAndUpdate(
                 { _id: req.body.id}, 
                 {$set: {
-                        _id      : req.body.id,
-                        username : req.body.username,
-                        email    : req.body.email
+                        _id         : req.body.id,
+                        postname    : req.body.postname,
+                        username    : req.body.username,
+                        email       : req.body.email,
+                        organization: req.body.organization,
+                        telephone   : req.body.telephone,
+                        postcontent : req.body.postcontent
                 }}, 
                 {upsert: false},
 

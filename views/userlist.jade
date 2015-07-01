@@ -3,24 +3,25 @@ extends layout
 block content
     h1.
         Administrator Editing Page    
-    form(name="adduser",method="post",action="/adduser")
-        p Create New Post
-        input(type="text", size="60", placeholder="Your Title", name="username")
-        =" "
-        button(type="submit")  submit
-        p 
-        textarea.form-control(type="text", cols="80", rows="5", placeholder="Your Post", name="email")
-        
     ul
         each user, i in userlist
-            li
-                .mybox 
-                    p Post Title: #{user.postname}
-                    p Name: #{user.username}
-                    p E-Mail: #{user.email}
-                    p Organization: #{user.organization}
-                    p Telephone: #{user.telephone}
-                    p Proposal Content: #{user.postcontent}
-                    a(href="/edituser/#{user.id}") Edit
-                    =" "
-                    a(href="/deleteuser/#{user.id}") Delete
+            li.mybox 
+                p Post Title: #{user.postname}
+                p Date: #{user.date}
+                p Name: #{user.username}
+                p E-Mail: #{user.email}
+                p Organization: #{user.organization}
+                p Telephone: #{user.telephone}
+                p Proposal Content: #{user.postcontent}
+                a(href="/singleview/#{user.id}") View
+                =" "
+                a(href="/edituser/#{user.id}") Edit
+                =" "
+                a(href="/deleteuser/#{user.id}", onclick="return deleteWarning();" ) Delete
+    script.
+        function deleteWarning() {
+        if (confirm("Are you sure you want to delete?") == true)
+        {return true;}
+        else
+        {document.reload();}
+        }

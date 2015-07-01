@@ -1,11 +1,24 @@
 extends layout
 
 block content
-    h1 Edit Your Form
-    form(name="update",method="post",action="/update")
-        input#inputUserName(type="hidden", size=40, placeholder="id", name="id", value="#{user[0]._id}")            
-        p
-        input#inputUserName(type="text", placeholder="username", name="username", value="#{user[0].username}")   
-        p
-        input#inputUserEmail(type="text", size=80, placeholder="email", name="email", value="#{user[0].email}")  
-        button#btnSubmit(type="submit") Submit      
+    h1 Administrative Editor
+
+
+    form(name="adduser", method="post", action="/update")
+        input(type="hidden", size=40, placeholder="id", name="id", value="#{user[0]._id}")
+        
+        input(type="text", size="60", placeholder="Proposal Title (required)", name="postname", value="#{user[0].postname}" )
+
+        input(type="text", size="60", placeholder="Your Name (required)", name="username",
+        value="#{user[0].username}" )
+
+        input(type="text", size="60", placeholder="Your E-Mail (required)", name="email", value="#{user[0].email}" )
+
+        input(type="text", size="60", placeholder="Your Organization (optional)", name="organization", value="#{user[0].organization}")
+
+        input(type="text", size="60", placeholder="Your Telephone (optional)", name="telephone", value="#{user[0].telephone}")
+        p 
+        textarea.form-control(type="text", cols="8", rows="10", name="postcontent", placeholder="#{user[0].postcontent}")
+        =" "
+        button.btn-primary(type="submit") Save Edited Version
+

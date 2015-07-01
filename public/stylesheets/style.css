@@ -3,20 +3,34 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
-}
 
-ul.home li.home { color: blue; }
+/*Pseudo classes */
+ a.menu-btn:hover{
+ 	color: yellow;
+ }
+
+/*a {
+  color: #00B7FF;
+}*/
+
+/*ul.home li.home { color: blue; }
 ul.blog li.blog { color: blue; }
 ul.contact li.contact { color: blue; }
-ul.about li.about { color: blue; }
+ul.about li.about { color: blue; }*/
+
+ul {
+	list-style-type: none;
+}
+
 
 .mybox {
 		width:500px;
 		padding: 10px;
-		background-color: #666666;
+		background-color: #F4F4F4;
 		margin-bottom: 20px;
+		border:solid 2px black;
+		font-size: 12px;
+		border-radius: 10px;
 		}
 
 .homemadebutton { 
