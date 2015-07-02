@@ -20,7 +20,7 @@ catch(err){
 console.log("Either way: uristring is "+ uristring);
 
 var hardadminperson = "joe";
-var hardadminpass = "secret";
+var hardadminpass = "joe";
 var cookietime;
 
 var db = mongoose.connect(uristring);
@@ -38,7 +38,7 @@ var User = db.model('user',
  	});
 
 router.get('/logout', function(req,res){
-    res.clearCookie('lexitownlast');
+    res.clearCookie('lastvisit');
     res.redirect('/');
 });
 
@@ -59,7 +59,7 @@ router.get('/about', function(req, res) {
 /* GET Userlist page. */
 router.get('/userlist', function(req, res) {
 
-    var cookietime = req.cookies.lexitownlast;
+    var cookietime = req.cookies.lastvisit;
     console.log("cookietime is " + cookietime);
 
     if ( recent(cookietime) )
@@ -165,13 +165,13 @@ router.post('/verify', function(req, res){
         console.log(adminperson + " " + adminpass + " is user ");
         res.cookie('adminperson', req.body.adminperson);
         res.cookie('adminpass', req.body.adminpass);
-        res.cookie('lexitownlast', Date.now()); 
+        res.cookie('lastvisit', Date.now()); 
         res.redirect('userlist');
         }
     else
         {
         console.log("not a valid login ");
-        res.redirect('/');   
+        res.redirect('/login');   
         }
 });
 
@@ -188,7 +188,7 @@ function recent (cookietime){
     console.log( timedif + " is dif" );
     if ( (timedif ) <  3600000 )   //should be one hour second valid login
     {return true;}
-};
+}
 
 
 

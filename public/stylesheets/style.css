@@ -54,3 +54,31 @@ ul {
 	background-color: blue;
 	color: white ;
 }
+
+.btn {
+  background: #d93434;
+  background-image: -webkit-linear-gradient(top, #d93434, #b82b47);
+  background-image: -moz-linear-gradient(top, #d93434, #b82b47);
+  background-image: -ms-linear-gradient(top, #d93434, #b82b47);
+  background-image: -o-linear-gradient(top, #d93434, #b82b47);
+  background-image: linear-gradient(to bottom, #d93434, #b82b47);
+  -webkit-border-radius: 35;
+  -moz-border-radius: 35;
+  border-radius: 35px;
+  text-shadow: 1px 4px 5px #472947;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 23px;
+  padding: 8px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #a50aad;
+  background-image: -webkit-linear-gradient(top, #a50aad, #9e0aab);
+  background-image: -moz-linear-gradient(top, #a50aad, #9e0aab);
+  background-image: -ms-linear-gradient(top, #a50aad, #9e0aab);
+  background-image: -o-linear-gradient(top, #a50aad, #9e0aab);
+  background-image: linear-gradient(to bottom, #a50aad, #9e0aab);
+  text-decoration: none;
+}
