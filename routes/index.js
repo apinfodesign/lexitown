@@ -21,6 +21,7 @@ console.log("Either way: uristring is "+ uristring);
 
 var hardadminperson = "joe";
 var hardadminpass = "secret";
+var cookietime;
 
 var db = mongoose.connect(uristring);
 
@@ -36,6 +37,10 @@ var User = db.model('user',
         date : {type: Date}
  	});
 
+router.get('/logout', function(req,res){
+    res.clearCookie('lexitownlast');
+    res.redirect('/');
+});
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -46,7 +51,6 @@ router.get('/thankyou', function(req, res, next) {
   res.render('thankyou', { title: 'Thank You for Your Message' });
 });
 
-
 /* GET About page. */
 router.get('/about', function(req, res) {
     res.render('about', { title: 'Suggestion Module' });
@@ -54,20 +58,30 @@ router.get('/about', function(req, res) {
 
 /* GET Userlist page. */
 router.get('/userlist', function(req, res) {
-    User.find( {} , function(err,docs){
+
+    var cookietime = req.cookies.lexitownlast;
+    console.log("cookietime is " + cookietime);
+
+    if ( recent(cookietime) )
+    {    
+        User.find( {} , function(err,docs){
         docs.reverse();   //reverse the array before handing to client
         docs = docs.slice(0,10);
 
         res.render('userlist', {'userlist':docs});
-    });
+        });
+    }
+    else
+    {
+        console.log("admin edit is blocked");
+        res.redirect('/');
+    }
 });
 
 /* GET New User page. */
 router.get('/newuser', function(req, res) {
     res.render('newuser', { title: 'Add New User' });
 });
-
-
 
 /* POST to Add User Service */
 router.post('/adduser', function(req, res) {
@@ -89,7 +103,6 @@ router.post('/adduser', function(req, res) {
     NewUserDoc.save(function(err, callback){
         res.redirect('/thankyou');
     });
-
 });
 
 router.get('/deleteuser/:id', function(req, res){
@@ -107,7 +120,6 @@ router.get('/singleview/:id', function(req,res){
 });
 
 router.get('/login', function (req, res){
-
     res.render('login', {title: "Login Page" });
 });
 
@@ -146,9 +158,6 @@ router.post('/update', function(req,res){
  });
 
 router.post('/verify', function(req, res){
-    console.log(req.body.adminperson);
-    console.log(req.body.adminpass);
-
     var adminperson = req.body.adminperson;
     var adminpass = req.body.adminpass;
     if (verifyuser(adminperson, adminpass))
@@ -156,26 +165,31 @@ router.post('/verify', function(req, res){
         console.log(adminperson + " " + adminpass + " is user ");
         res.cookie('adminperson', req.body.adminperson);
         res.cookie('adminpass', req.body.adminpass);
-        
-
+        res.cookie('lexitownlast', Date.now()); 
+        res.redirect('userlist');
         }
     else
-        {console.log("not a valid login ");   }
-
-
-
-    res.redirect('/');
-
+        {
+        console.log("not a valid login ");
+        res.redirect('/');   
+        }
 });
 
-
 function verifyuser (adminperson, adminpass){
-    if ( (adminperson === hardadminperson) && (adminpass == hardadminpass ) ) 
+    if ( (adminperson === hardadminperson) && (adminpass === hardadminpass ) ) 
         {loggedin = true;}
     else
     {loggedin = false;}
     return loggedin;
 }
+
+function recent (cookietime){
+    var timedif = (  (Date.now()) - cookietime   );
+    console.log( timedif + " is dif" );
+    if ( (timedif ) <  3600000 )   //should be one hour second valid login
+    {return true;}
+};
+
 
 
 module.exports = router;

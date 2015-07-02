@@ -5,6 +5,7 @@ block content
 
 
     form(name="adduser", method="post", action="/update")
+        
         input(type="hidden", size=40, placeholder="id", name="id", value="#{user[0]._id}")
         
         input(type="text", size="60", placeholder="Proposal Title (required)", name="postname", value="#{user[0].postname}" )
