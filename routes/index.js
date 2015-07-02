@@ -19,6 +19,9 @@ catch(err){
 }
 console.log("Either way: uristring is "+ uristring);
 
+var hardadminperson = "joe";
+var hardadminpass = "secret";
+
 var db = mongoose.connect(uristring);
 
 //database schema
@@ -103,10 +106,18 @@ router.get('/singleview/:id', function(req,res){
     });
 });
 
+router.get('/login', function (req, res){
+
+    res.render('login', {title: "Login Page" });
+});
+
+//capture page that is requesting edituser and use 
+//to guide if statment 
+// for render
 
 router.get('/edituser/:id', function(req,res){
      User.find({_id: req.params.id}, function(err, docs){
-        console.log(docs);
+        console.log(docs + "inside edituser/:id");
         res.render('edituser.jade', {user : docs});
     });
 });
@@ -134,7 +145,37 @@ router.post('/update', function(req,res){
                 );
  });
 
+router.post('/verify', function(req, res){
+    console.log(req.body.adminperson);
+    console.log(req.body.adminpass);
 
+    var adminperson = req.body.adminperson;
+    var adminpass = req.body.adminpass;
+    if (verifyuser(adminperson, adminpass))
+        {
+        console.log(adminperson + " " + adminpass + " is user ");
+        res.cookie('adminperson', req.body.adminperson);
+        res.cookie('adminpass', req.body.adminpass);
+        
+
+        }
+    else
+        {console.log("not a valid login ");   }
+
+
+
+    res.redirect('/');
+
+});
+
+
+function verifyuser (adminperson, adminpass){
+    if ( (adminperson === hardadminperson) && (adminpass == hardadminpass ) ) 
+        {loggedin = true;}
+    else
+    {loggedin = false;}
+    return loggedin;
+}
 
 
 module.exports = router;

@@ -1,0 +1,13 @@
+extends layout
+
+block content
+    h1 Login
+
+    form(name="login", method="post", action="/verify")
+        
+        input(type="text", size="30", placeholder="Username (required)", name="adminperson"  )
+        br
+        input(type="text", size="30", placeholder="Password (required)", name="adminpass" )
+        br
+        button.btn-primary(type="submit") Login
+

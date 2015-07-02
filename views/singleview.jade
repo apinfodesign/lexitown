@@ -13,4 +13,13 @@ block content
                 p Proposal Content: #{user[0].postcontent}
                 a(href="/edituser/#{user[0].id}") Edit
                 =" "
-                a(href="/deleteuser/#{user[0].id}") Delete
+                a(href="/deleteuser/#{user[0].id}", onclick="return deleteWarning();") Delete
+    script.
+        function deleteWarning() {
+        if (confirm("Are you sure you want to delete?") == true)
+        {return true;
+        console.log("item deleted")}
+        else
+        {console.log("delete cancelled")
+        return false; }
+        }

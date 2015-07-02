@@ -9,10 +9,6 @@ block content
                 p Post Title: #{user.postname}
                 p Date: #{user.date}
                 p Name: #{user.username}
-                p E-Mail: #{user.email}
-                p Organization: #{user.organization}
-                p Telephone: #{user.telephone}
-                p Proposal Content: #{user.postcontent}
                 a(href="/singleview/#{user.id}") View
                 =" "
                 a(href="/edituser/#{user.id}") Edit
@@ -21,7 +17,9 @@ block content
     script.
         function deleteWarning() {
         if (confirm("Are you sure you want to delete?") == true)
-        {return true;}
+        {return true;
+        console.log("item deleted")}
         else
-        {document.reload();}
+        {console.log("delete cancelled")
+        return false; }
         }
