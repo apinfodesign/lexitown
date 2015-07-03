@@ -14,9 +14,9 @@ block content
         br
         input(type="text", size="60", placeholder="Your Organization (optional)", name="organization", value="#{user[0].organization}")
         br
-        input(type="text", size="60", placeholder="Your Telephone (optional)", name="telephone", value="#{user[0].telephone}")
+        input(type="text", size="60", rows="10", placeholder="Your Telephone (optional)", name="telephone", value="#{user[0].telephone}")
         br 
-        textarea.form-control(type="text", cols="8", rows="10", name="postcontent", placeholder="#{user[0].postcontent}")
+        textarea.form-control(type="text", cols="8", rows="10", placeholder="#{user[0].postcontent}", name="postcontent", value="#{user[0].postcontent}" )
         =" "
         br
         button.btn-primary(type="submit") Save Edited Version
