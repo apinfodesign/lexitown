@@ -6,8 +6,8 @@ block content
     ul
         each user, i in userlist
             li.mybox 
-                p Post Title: #{user.postname}
                 p Date: #{user.date}
+                p Post Title: #{user.postname}
                 p Name: #{user.username}
                 a(href="/singleview/#{user.id}") View
                 =" "

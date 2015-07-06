@@ -13,14 +13,27 @@ html
       =" "
       a.menu-btn(href='/newuser') The Suggestion Box
       =" "
+      a.menu-btn(href='/newpost') The Angular Suggestion Box
+      =" "
       a.menu-btn(href='/about') About
       =" "
-      a.menu-btn(href='/userlist') Admin Editing
+      a#login.menu-btn(href='/login') Login 
       =" "
-      a.menu-btn(href='/login') Login
+      a#logout.menu-btn(href='/logout') Logout
       =" "
-      a.menu-btn(href='/logout') Logout
+      a#admin.menu-btn(href='/userlist') Admin Editing
    
       script.
          console.log( $.cookie() );
+         console.log ($.cookie().lastvisit + " is lastvisit ");
+         if ($.cookie().lastvisit != null)
+            {$('#admin').show() } 
+            else 
+            {$('#admin').hide()}
+         
+         if ($.cookie().lastvisit != null)
+             { $('#login').hide() } 
+             else 
+             { $('#logout').hide() }
+
    block content

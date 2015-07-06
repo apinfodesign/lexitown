@@ -2,21 +2,22 @@ extends layout
 
 block content
     h1 Administrative Editor
-    form(name="adduser", method="post", action="/update")
+    h5 Submitted on: #{user[0].date}
+    form.formstyle(name="adduser", method="post", action="/update")
         input(type="hidden", size=40, placeholder="id", name="id", value="#{user[0]._id}")
         br
-        input(type="text", size="60", placeholder="Proposal Title (required)", name="postname", value="#{user[0].postname}" )
+        input.formstyle(type="text", placeholder="Proposal Title (required)", name="postname", value="#{user[0].postname}" )
         br
-        input(type="text", size="60", placeholder="Your Name (required)", name="username",
+        input.formstyle(type="text",  placeholder="Your Name (required)", name="username",
         value="#{user[0].username}" )
         br
-        input(type="text", size="60", placeholder="Your E-Mail (required)", name="email", value="#{user[0].email}" )
+        input.formstyle(type="text", placeholder="Your E-Mail (required)", name="email", value="#{user[0].email}" )
         br
-        input(type="text", size="60", placeholder="Your Organization (optional)", name="organization", value="#{user[0].organization}")
+        input.formstyle(type="text", placeholder="Your Organization (optional)", name="organization", value="#{user[0].organization}")
         br
-        input(type="text", size="60", rows="10", placeholder="Your Telephone (optional)", name="telephone", value="#{user[0].telephone}")
+        input.formstyle(type="text", rows="10", placeholder="Your Telephone (optional)", name="telephone", value="#{user[0].telephone}")
         br 
-        textarea.form-control(type="text", cols="8", rows="10", placeholder="#{user[0].postcontent}", name="postcontent", value="#{user[0].postcontent}" )
+        textarea.form-control(type="text", rows="10" , placeholder="#{user[0].postcontent}", name="postcontent") #{user[0].postcontent} 
         =" "
         br
         button.btn-primary(type="submit") Save Edited Version

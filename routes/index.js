@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var path = require('path');
 
 //database connection
 var mongoose = require('mongoose');
@@ -66,7 +67,7 @@ router.get('/userlist', function(req, res) {
     {    
         User.find( {} , function(err,docs){
         docs.reverse();   //reverse the array before handing to client
-        docs = docs.slice(0,10);
+        //docs = docs.slice(0,10);
 
         res.render('userlist', {'userlist':docs});
         });
@@ -82,6 +83,12 @@ router.get('/userlist', function(req, res) {
 router.get('/newuser', function(req, res) {
     res.render('newuser', { title: 'Add New User' });
 });
+
+router.get('/newpost', function(req, res) {
+    res.sendFile(path.join(__dirname, '../views/newpost.html'));
+});
+
+
 
 /* POST to Add User Service */
 router.post('/adduser', function(req, res) {
