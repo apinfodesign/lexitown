@@ -9,21 +9,23 @@ html
     script(src="/javascripts/jquery.sticky.js")
 
   body
-    .menu#sticker
-      a.menu-btn(href='/') Home
-      =" "
-      a.menu-btn(href='/#submit') The Suggestion Box
-      =" "
-      a.menu-btn(href='/newpost') The Angular Suggestion Box
-      =" "
-      a.menu-btn(href='/#about') About
-      =" "
-      a#login.menu-btn(href='/login') Login 
-      =" "
-      a#logout.menu-btn(href='/logout') Logout
-      =" "
-      a#admin.menu-btn(href='/userlist') Admin Editing
-   
+    .menucontainer.sticky-nav#sticker
+      .grid-left
+        .menuleft
+          a.title(href='/') The Suggestion Box Module
+          =" "
+      .grid-right
+        .menu
+          a(href='/#submit') The Suggestion Box
+          =" "
+          a(href='/#about') About
+          =" "
+          a#login(href='/login') Login 
+          =" "
+          a#logout(href='/logout') Logout
+          =" "
+          a#admin(href='/userlist') Admin Editing
+       
       script.
         $(document).ready(function(){
 

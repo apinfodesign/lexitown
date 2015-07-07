@@ -1,8 +1,7 @@
 extends layout
 
 block content
-    h1.
-        Suggestion Box
+    h1 Suggestion Box
     form(name="adduser", method="post", action="/adduser")
         input(type="text", size="60", placeholder="Proposal Title (required)", name="postname" required)
         br

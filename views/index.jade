@@ -1,15 +1,14 @@
 extends layout
 
 block content
-    h1.formstyle= title
-    p.formstyle Welcome to #{title}
-    div.splash#splash
-      a.btn.formstyle(href="/#submit") Go to The Suggestion Box
-      p
-      p.formstyle Suggestion module is a Node Express demonstration project which exercises some basic functionality, including the following
+    div.splash.centerit#splash
+      br
+      a.biggify(href="/#submit") Welcome to The Suggestion Box
+      br
+      p.standardtext Let us know what you think!
    
     
-    div.submit#submit
+    div.submit.centerit#submit
       h1.formstyle Suggestion Box
         h2.
         form.formstyle(name="adduser", method="post", action="/adduser")
@@ -28,13 +27,13 @@ block content
             br
             button.btn-primary(type="submit") Send
 
-    div.about#about
+    div.about.centerit#about
       h1.formstyle About
-      p.h4.formstyle Suggestion module is a Node Express demonstration project which exercises some basic functionality, including the following
-      ul.h5
-        li Built on Node, Express, Jade, Bootstrap.
-        li Deployed on Heroku Free Tier (expect a 10 second delay on first use)
-        li Module includes front end and administrator functions
-        li Front end includes user form submit, client side validation, and message acknowledgement.
-        li Back end includes administrator review of submissions and editing.
-    
+        p.h4 Suggestion module is a Node Express demonstration project which exercises some basic functionality, including the following
+        ul.h4.centerit
+          li Built on Node, Express, Jade, Bootstrap.
+          li Deployed on Heroku Free Tier (expect a 10 second delay on first use)
+          li Module includes front end and administrator functions
+          li Front end includes user form submit, client side validation, and message acknowledgement.
+          li Back end includes administrator review of submissions and editing.
+      
