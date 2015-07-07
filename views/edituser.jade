@@ -1,24 +1,24 @@
 extends layout
 
 block content
-    h1 Administrative Editor
-    h5 Submitted on: #{user[0].date}
-    form.formstyle(name="adduser", method="post", action="/update")
-        input(type="hidden", size=40, placeholder="id", name="id", value="#{user[0]._id}")
-        br
-        input.formstyle(type="text", placeholder="Proposal Title (required)", name="postname", value="#{user[0].postname}" )
-        br
-        input.formstyle(type="text",  placeholder="Your Name (required)", name="username",
-        value="#{user[0].username}" )
-        br
-        input.formstyle(type="text", placeholder="Your E-Mail (required)", name="email", value="#{user[0].email}" )
-        br
-        input.formstyle(type="text", placeholder="Your Organization (optional)", name="organization", value="#{user[0].organization}")
-        br
-        input.formstyle(type="text", rows="10", placeholder="Your Telephone (optional)", name="telephone", value="#{user[0].telephone}")
-        br 
-        textarea.form-control(type="text", rows="10" , placeholder="#{user[0].postcontent}", name="postcontent") #{user[0].postcontent} 
-        =" "
-        br
-        button.btn-primary(type="submit") Save Edited Version
+        h1.formstyle Administrative Editor
+        h5.formstyle Submitted on: #{user[0].date}
+        form.formstyle(name="adduser", method="post", action="/update")
+            input(type="hidden", size=40, placeholder="id", name="id", value="#{user[0]._id}")
+            br
+            input.formstyle(type="text", placeholder="Proposal Title (required)", name="postname", value="#{user[0].postname}" )
+            br
+            input.formstyle(type="text",  placeholder="Your Name (required)", name="username",
+            value="#{user[0].username}" )
+            br
+            input.formstyle(type="text", placeholder="Your E-Mail (required)", name="email", value="#{user[0].email}" )
+            br
+            input.formstyle(type="text", placeholder="Your Organization (optional)", name="organization", value="#{user[0].organization}")
+            br
+            input.formstyle(type="text", rows="10", placeholder="Your Telephone (optional)", name="telephone", value="#{user[0].telephone}")
+            br 
+            textarea.formstyle.form-control(type="text", rows="10" , placeholder="#{user[0].postcontent}", name="postcontent") #{user[0].postcontent} 
+            =" "
+            br
+            button.btn-primary(type="submit") Save Edited Version
 

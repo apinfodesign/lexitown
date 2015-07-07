@@ -6,16 +6,17 @@ html
     link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css")
     script(src="//code.jquery.com/jquery-1.11.3.min.js")
     script(src="/javascripts/jquery.cookie.js")
+    script(src="/javascripts/jquery.sticky.js")
 
   body
-    .menu
+    .menu#sticker
       a.menu-btn(href='/') Home
       =" "
-      a.menu-btn(href='/newuser') The Suggestion Box
+      a.menu-btn(href='/#submit') The Suggestion Box
       =" "
       a.menu-btn(href='/newpost') The Angular Suggestion Box
       =" "
-      a.menu-btn(href='/about') About
+      a.menu-btn(href='/#about') About
       =" "
       a#login.menu-btn(href='/login') Login 
       =" "
@@ -24,6 +25,10 @@ html
       a#admin.menu-btn(href='/userlist') Admin Editing
    
       script.
+        $(document).ready(function(){
+
+         $("#sticker").sticky({topSpacing:0});
+          
          console.log( $.cookie() );
          console.log ($.cookie().lastvisit + " is lastvisit ");
          if ($.cookie().lastvisit != null)
@@ -35,5 +40,6 @@ html
              { $('#login').hide() } 
              else 
              { $('#logout').hide() }
-
-   block content
+        });     
+ 
+    block content

@@ -1,15 +1,40 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-  a.btn(href="/newuser") Go to The Suggestion Box
-  p
-  p Suggestion module is a Node Express demonstration project which exercises some basic functionality, including the following
-  ul
-    li Built on Node, Express, Bootstrap.
-    li Deployed on Heroku Free Tier (expect a 10 second delay on first use)
-    li Module includes front end and administrator functions
-    li Front end includes user form submit, client side validation, and message acknowledgement.
-    li Back end includes administrator review of submissions and editing.
-  
+    h1.formstyle= title
+    p.formstyle Welcome to #{title}
+    div.splash#splash
+      a.btn.formstyle(href="/#submit") Go to The Suggestion Box
+      p
+      p.formstyle Suggestion module is a Node Express demonstration project which exercises some basic functionality, including the following
+   
+    
+    div.submit#submit
+      h1.formstyle Suggestion Box
+        h2.
+        form.formstyle(name="adduser", method="post", action="/adduser")
+            input(type="text", size="60", placeholder="Proposal Title (required)", name="postname" required)
+            br
+            input(type="text", size="60", placeholder="Your Name (required)", name="username" required)
+            br
+            input(type="text", size="60", placeholder="Your E-Mail (required)", name="email" required)
+            br
+            input(type="text", size="60", placeholder="Your Organization (optional)", name="organization")
+            br
+            input(type="text", size="60", placeholder="Your Telephone (optional)", name="telephone")
+            p 
+            textarea.form-control(type="text", cols="8", rows="10", placeholder="Your Proposal or Message (required)", name="postcontent", textareaObject.value="postcontent" postcontent required)
+            =" "
+            br
+            button.btn-primary(type="submit") Send
+
+    div.about#about
+      h1.formstyle About
+      p.h4.formstyle Suggestion module is a Node Express demonstration project which exercises some basic functionality, including the following
+      ul.h5
+        li Built on Node, Express, Jade, Bootstrap.
+        li Deployed on Heroku Free Tier (expect a 10 second delay on first use)
+        li Module includes front end and administrator functions
+        li Front end includes user form submit, client side validation, and message acknowledgement.
+        li Back end includes administrator review of submissions and editing.
+    

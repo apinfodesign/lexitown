@@ -1,6 +1,7 @@
 body {
-  padding: 50px;
+  padding-left: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #F4F4F4;
 }
 
 
@@ -22,6 +23,24 @@ ul {
 	list-style-type: none;
 }
 
+.splash{
+  margin-left:30px;
+  height:1080px;
+  padding-top:30px;
+  background-color:#F4F4F4;}
+
+.submit{
+  margin-left:30px;
+  height:1080px;
+  padding-top:30px;
+  background-color:#C2D6D6;}
+
+.about{
+  margin-left:30px;
+
+  height:1080px;
+  padding-top:30px;
+  background-color: #F4F4F4}
 
 .mybox {
 		width:500px;
@@ -44,7 +63,12 @@ ul {
     padding-top: 12px;
 }
 
-.menu {	
+.menu {
+  padding-top: 10px;
+  margin-left:30px;
+  background-color: #F4F4F4;
+  height: 60px;
+	
 }
 
 .menu-btn {
@@ -68,7 +92,7 @@ ul {
   text-shadow: 1px 4px 5px #472947;
   font-family: Arial;
   color: #ffffff;
-  font-size: 23px;
+  font-size: 43px;
   padding: 8px 20px 10px 20px;
   text-decoration: none;
 }
@@ -83,4 +107,7 @@ ul {
   text-decoration: none;
 }
 
-.formstyle{width: 500px;}
+.formstyle{width: 500px;
+  margin-left:30px;
+  margin-top:30px;
+}
