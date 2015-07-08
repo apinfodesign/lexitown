@@ -1,9 +1,9 @@
 extends layout
 
 block content
-    div.splash.centerit#splash
+    div.splash.centerit.heightcenter#splash
       br
-      a.biggify(href="/#submit") Welcome to The Suggestion Box
+      a.biggify(href="/#submit") Welcome to the Suggestion Box
       br
       p.standardtext Let us know what you think!
    
@@ -29,11 +29,12 @@ block content
 
     div.about.centerit#about
       h1.formstyle About
-        p.h4 Suggestion module is a Node Express demonstration project which exercises some basic functionality, including the following
+        p.h4 The Suggestion Box module is a Node Express demonstration project which exercises some basic functionality, including the following:
         ul.h4.centerit
-          li Built on Node, Express, Jade, Bootstrap.
-          li Deployed on Heroku Free Tier (expect a 10 second delay on first use)
+          li Built on Node, Express, Jade, CSS/Bootstrap.
+          li Deployed on Heroku Free Tier (expect a 10 second delay on first use.)
+          li Uses Mongoose connector to Mongolab.com Mongo Database (Free Tier)
           li Module includes front end and administrator functions
           li Front end includes user form submit, client side validation, and message acknowledgement.
-          li Back end includes administrator review of submissions and editing.
+          li Back end includes administrator review of submissions, editing, and deletion.
       

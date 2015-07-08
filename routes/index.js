@@ -20,6 +20,7 @@ catch(err){
 }
 console.log("Either way: uristring is "+ uristring);
 
+//psuedo login fully exposed to public
 var hardadminperson = "joe";
 var hardadminpass = "joe";
 var cookietime;
