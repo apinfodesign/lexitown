@@ -109,6 +109,7 @@ ul {
 		width:500px;
 		padding: 0px;
 		background-color: #F4F4F4;
+    margin-top:10px;
 		margin-bottom: 20px;
 		border:solid 2px black;
 		font-size: 12px;
@@ -139,15 +140,18 @@ ul {
 .grid-right{
   width: 70%;
   float: right;
+
 }
 
 .menu {
+  text-align: right;
   margin: 0 auto;
   padding-top: 10px;
   padding-left:10px; 
   height: 40px;
   background-color: #D1E0E0;
   opacity:.6;
+
 }
 
 .menuleft {
